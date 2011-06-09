@@ -235,8 +235,8 @@ class ImportTest< TestCaseSuperClass
     stop_time = Time.now.utc
     
     book = Book.find(:first)
-    ActiveRecord::Base.default_timezone = old_tz
     assert_within start_time.to_f-1, book.created_on.to_f, stop_time.to_f+1, "Book created time was incorrect"    
+    ActiveRecord::Base.default_timezone = old_tz
   end
 
   def test_import_should_automatically_update_created_at_columns_for_new_imported_records_using_utc
@@ -249,8 +249,8 @@ class ImportTest< TestCaseSuperClass
     stop_time = Time.now.utc
     
     book = Book.find(:first)
-    ActiveRecord::Base.default_timezone = old_tz
     assert_within start_time.to_f-1, book.created_at.to_f, stop_time.to_f+1, "Book created time was incorrect"    
+    ActiveRecord::Base.default_timezone = old_tz
   end
   
   def test_import_should_automatically_update_updated_on_columns_for_new_imported_records_using_utc
@@ -263,8 +263,8 @@ class ImportTest< TestCaseSuperClass
     stop_time = Time.now.utc
     
     book = Book.find(:first)
-    ActiveRecord::Base.default_timezone = old_tz
     assert_within start_time.to_f-1, book.updated_on.to_f, stop_time.to_f+1, "Book created time was incorrect"    
+    ActiveRecord::Base.default_timezone = old_tz
   end
 
   def test_import_should_automatically_update_updated_at_columns_for_new_imported_records_using_utc
@@ -277,8 +277,8 @@ class ImportTest< TestCaseSuperClass
     stop_time = Time.now.utc
     
     book = Book.find(:first)
-    ActiveRecord::Base.default_timezone = old_tz
     assert_within start_time.to_f-1, book.updated_at.to_f, stop_time.to_f+1, "Book created time was incorrect"    
+    ActiveRecord::Base.default_timezone = old_tz
   end  
   
   def test_import_should_not_add_or_overwrite_existing_models
