@@ -185,7 +185,7 @@ class ActiveRecord::Base
       # Force the primary key col into the insert if it's not
       # on the list and we are using a sequence and stuff a nil
       # value for it into each row so the sequencer will fire later
-      if !column_names.include?(primary_key) && sequence_name && connection.prefetch_primary_key?
+      if ![primary_key].flatten.map(&:to_sym).to_set.subset?(column_names.map(&:to_sym).to_set) && sequence_name && connection.prefetch_primary_key?
          column_names << primary_key
          array_of_attributes.each { |a| a << nil }
       end
@@ -264,7 +264,7 @@ class ActiveRecord::Base
         array_of_attributes.each do |arr|
           my_values = []
           arr.each_with_index do |val,j|
-            if !sequence_name.blank? && column_names[j] == primary_key && val.nil?
+            if !primary_key.kind_of?(Array) && !sequence_name.blank? && column_names[j] == primary_key && val.nil?
                my_values << connection.next_value_for_sequence(sequence_name)
             else
                my_values << connection.quote( val, columns[j] )
