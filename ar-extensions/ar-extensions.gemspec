@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = %q{ar-extensions}
-  s.version = "0.9.3"
+  s.version = "0.9.5"
   s.date = %q{2010-10-28}
   s.summary = %q{Extends ActiveRecord functionality.}
   s.email = %q{zach.dennis@gmail.com}
@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.has_rdoc = true
   s.authors = ["Zach Dennis", "Mark Van Holstyn", "Blythe Dunham"]
-  s.files = %w(init.rb Rakefile ChangeLog README) +
+  s.files = `git ls-files`.split("\n")
     Dir.glob('db/**/*') +
     Dir.glob('config/**/*') +
     Dir.glob('lib/**/*.rb') +

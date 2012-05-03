@@ -1,0 +1,1 @@
+This is the ShoeDazzle fork of the ar-extensions gem. It implements the import extensions for mysql2 only. None of the other extensions were implemented for use with mysql2. Use with caution!
