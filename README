@@ -1,1 +1,8 @@
-This is the ShoeDazzle fork of the ar-extensions gem. It implements the import extensions for mysql2 only. None of the other extensions were implemented for use with mysql2. Use with caution!
+This fork tries to consolidate all mysql2 compatability changes for the ar-extensions gem.
+
+It includes:
+
+ - the ShoeDazzle fork for the import extension & adapter
+ - the tracksimple mysql2_support branch for import extension, plus some lower level compatability changes
+
+Please fork and improve futher support -- this version has not been thoroughly tested yet (make this untrue!).
